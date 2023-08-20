@@ -1,0 +1,22 @@
+<form autocomplete="off" [formGroup]="form">
+  <div mat-dialog-content>
+    <p>Add City To {{data.name}}</p>
+    <mat-form-field>
+      <mat-label>City Name</mat-label>
+      <input matInput formControlName="city">
+      <mat-error *ngIf="cityFormControl.hasError('pattern')">
+        Please enter a valid city name
+      </mat-error>
+      <mat-error *ngIf="cityFormControl.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-hint *ngIf="isCityAlreadyExists">
+        City Name Alrady Exists
+      </mat-hint>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+    <button mat-raised-button [disabled]="form.invalid" (click)="saveCity()" color="primary">Ok</button>
+  </div>
+</form>

@@ -1,0 +1,15 @@
+<ng-container [formGroup]="personForm" *ngIf="countries">
+  <mat-card class="form-container">
+    <app-person-info formGroupName="personInfo" class="se-person-info"></app-person-info>
+    <app-address
+    formArrayName="addresses"
+    [countries]="countries"
+    class="se-address"
+    (addressEvent)="addressEvent($event)"
+    ></app-address>
+    <div class="sg-action-container">
+      <button mat-raised-button (click)="addAddress()" color="primary">Add Address</button>
+      <button mat-raised-button (click)="save()" [disabled]="personForm.invalid" color="primary">Save</button>
+    </div>
+  </mat-card>
+</ng-container>

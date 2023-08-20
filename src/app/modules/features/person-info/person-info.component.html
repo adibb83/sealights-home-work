@@ -1,0 +1,15 @@
+<form autocomplete="off" [formGroup]="form">
+  <div class="form-container">
+    <mat-card-title class="sg-card-title">Create New Person</mat-card-title>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Add Name" formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Birthdate</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="birthdate">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+</form>

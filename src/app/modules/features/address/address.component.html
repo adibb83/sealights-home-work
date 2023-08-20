@@ -1,0 +1,42 @@
+<form autocomplete="off" [formGroup]="form">
+  <ng-container formArrayName="addresses">
+    <div class="sg-addresses-container">
+      <ng-container *ngFor="let address of formArray.controls; let idx = index">
+        <div class="form-container" [formGroup]="address">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input type="text" matInput placeholder="name" formControlName="name" />
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Country</mat-label>
+            <mat-select placeholder="Select Country" formControlName="countrId" (selectionChange)="onCountrySelectChange(idx)">
+              <mat-option *ngFor="let country of _countries" [value]="country.id">
+                {{country.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="sg-city-dd-container">
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <mat-select placeholder="Select City" formControlName="cityId">
+                <mat-option *ngFor="let city of getCitiesList(idx)" [value]="city.id">
+                  {{city.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-raised-button [disabled]="!getSelectedCountryId(idx)" (click)="addCity(idx)" color="accent">Add City</button>
+          </div>
+
+          <mat-form-field>
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="street" formControlName="street" />
+          </mat-form-field>
+          <button mat-raised-button *ngIf="idx !== 0" (click)="deleteAddressForm(idx)" color="warn">Remove
+            Address</button>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</form>

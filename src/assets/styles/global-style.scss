@@ -1,0 +1,70 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body,
+app-root {
+  height: 100vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  user-select: none;
+}
+
+.form-container .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.sg-card-title {
+  margin-bottom: 1rem !important;
+}
+
+.sg-action-container {
+  display: flex;
+  flex-direction: column;
+  button {
+    margin: 1rem;
+  }
+}
+
+.sg-addresses-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.sg-city-dd-container{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  button{
+    margin-left: .5rem;
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: first baseline;
+}
+
+.sg-overview-container{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .sg-table-container{
+    max-height: 100%;
+    flex-basis: 90%;
+    overflow-y: auto;
+  }
+
+  .sg-button-container{
+    flex-basis: 10%;
+    padding: 1rem;
+  }
+}
